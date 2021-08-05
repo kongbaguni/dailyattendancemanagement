@@ -11,6 +11,7 @@
 		1B3A50ED26BBD89200F36EBB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A50EC26BBD89200F36EBB /* ContentView.swift */; };
 		1B3A50EF26BBD89300F36EBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50EE26BBD89300F36EBB /* Assets.xcassets */; };
 		1B3A50F226BBD89300F36EBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50F126BBD89300F36EBB /* Preview Assets.xcassets */; };
+		1B3A50FA26BBD8CF00F36EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		1B3A50EE26BBD89300F36EBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B3A50F126BBD89300F36EBB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B3A50F326BBD89300F36EBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				1B3A50EC26BBD89200F36EBB /* ContentView.swift */,
 				1B3A50EE26BBD89300F36EBB /* Assets.xcassets */,
 				1B3A50F326BBD89300F36EBB /* Info.plist */,
+				1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */,
 				1B3A50F026BBD89300F36EBB /* Preview Content */,
 			);
 			path = dailyattendancemanagement;
@@ -128,6 +131,7 @@
 			files = (
 				1B3A50F226BBD89300F36EBB /* Preview Assets.xcassets in Resources */,
 				1B3A50EF26BBD89300F36EBB /* Assets.xcassets in Resources */,
+				1B3A50FA26BBD8CF00F36EBB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
