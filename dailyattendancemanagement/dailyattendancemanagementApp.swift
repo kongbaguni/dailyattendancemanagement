@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
-
 @main
 struct dailyattendancemanagementApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().onAppear(perform: {
+                print("!!!!")
+            })
         }
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		1B3A50EF26BBD89300F36EBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50EE26BBD89300F36EBB /* Assets.xcassets */; };
 		1B3A50F226BBD89300F36EBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50F126BBD89300F36EBB /* Preview Assets.xcassets */; };
 		1B3A50FA26BBD8CF00F36EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */; };
+		1B3A50FD26BBDDE100F36EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */; };
+		CFEFB703040669C4FF5F2DBA /* Pods_dailyattendancemanagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,10 @@
 		1B3A50F126BBD89300F36EBB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B3A50F326BBD89300F36EBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		55A67EEFB5B54218781CAACC /* Pods-dailyattendancemanagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dailyattendancemanagement.release.xcconfig"; path = "Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement.release.xcconfig"; sourceTree = "<group>"; };
+		75BAE704AC05E928581A4403 /* Pods-dailyattendancemanagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dailyattendancemanagement.debug.xcconfig"; path = "Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement.debug.xcconfig"; sourceTree = "<group>"; };
+		C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dailyattendancemanagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFEFB703040669C4FF5F2DBA /* Pods_dailyattendancemanagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				1B3A50E926BBD89200F36EBB /* dailyattendancemanagement */,
 				1B3A50E826BBD89200F36EBB /* Products */,
+				36CCB026969E1EA5C2B2670F /* Pods */,
+				5D678734D31ABFFCF6B27C79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +63,7 @@
 		1B3A50E926BBD89200F36EBB /* dailyattendancemanagement */ = {
 			isa = PBXGroup;
 			children = (
+				1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */,
 				1B3A50EA26BBD89200F36EBB /* dailyattendancemanagementApp.swift */,
 				1B3A50EC26BBD89200F36EBB /* ContentView.swift */,
 				1B3A50EE26BBD89300F36EBB /* Assets.xcassets */,
@@ -72,6 +82,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		36CCB026969E1EA5C2B2670F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75BAE704AC05E928581A4403 /* Pods-dailyattendancemanagement.debug.xcconfig */,
+				55A67EEFB5B54218781CAACC /* Pods-dailyattendancemanagement.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5D678734D31ABFFCF6B27C79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B3A50F626BBD89300F36EBB /* Build configuration list for PBXNativeTarget "dailyattendancemanagement" */;
 			buildPhases = (
+				349CF365227362EE4B597C89 /* [CP] Check Pods Manifest.lock */,
 				1B3A50E326BBD89200F36EBB /* Sources */,
 				1B3A50E426BBD89200F36EBB /* Frameworks */,
 				1B3A50E526BBD89200F36EBB /* Resources */,
+				FF22F740A0A0F44D9464FE71 /* [CP] Embed Pods Frameworks */,
+				1B3A50FB26BBDC4000F36EBB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -137,11 +167,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B3A50FB26BBDC4000F36EBB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		349CF365227362EE4B597C89 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dailyattendancemanagement-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF22F740A0A0F44D9464FE71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B3A50E326BBD89200F36EBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3A50FD26BBDDE100F36EBB /* AppDelegate.swift in Sources */,
 				1B3A50ED26BBD89200F36EBB /* ContentView.swift in Sources */,
 				1B3A50EB26BBD89200F36EBB /* dailyattendancemanagementApp.swift in Sources */,
 			);
@@ -268,6 +360,7 @@
 		};
 		1B3A50F726BBD89300F36EBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75BAE704AC05E928581A4403 /* Pods-dailyattendancemanagement.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -290,6 +383,7 @@
 		};
 		1B3A50F826BBD89300F36EBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55A67EEFB5B54218781CAACC /* Pods-dailyattendancemanagement.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
