@@ -26,6 +26,10 @@ struct GoogleSignIn {
             if let accessToken = user?.authentication.accessToken, let idToken = user?.authentication.idToken {
                 KeyChainUtill.shared.googleAuthData = .init(accessToken: accessToken, idToken: idToken)
             }
+            if let p = user?.profile {
+                let imageURL = p.imageURL(withDimension: 0)
+                KeyChainUtill.shared.profile = .init(name: p.name, email: p.email, imageURL: imageURL)
+            }
             complete(true)
         }
     }

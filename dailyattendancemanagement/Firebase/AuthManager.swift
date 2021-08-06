@@ -31,5 +31,6 @@ class AuthManager {
         }
         
         KeyChainUtill.shared.googleAuthData = nil
+        KeyChainUtill.shared.profile = nil
     }
 }

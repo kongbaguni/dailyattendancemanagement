@@ -12,12 +12,14 @@ struct MainView: View {
 
     var body: some View {
         VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("Hello, World!")
             Button("sign out") {
                 AuthManager.shared.signOut()
                 viewRouter.currentView = .login
             }
-        }
+        }.onAppear(perform: {
+            print(KeyChainUtill.shared.profile ?? "없음")
+        })
         
     }
 }
