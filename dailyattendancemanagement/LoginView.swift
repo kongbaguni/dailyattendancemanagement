@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct LoginView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
@@ -19,6 +20,15 @@ struct LoginView: View {
                 .font(.title)
                 .foregroundColor(.white)
                 .shadow(color: .blue, radius: 10, x: 0.0, y: 0.5)
+            LottieView(filename: "lottie/work")
+                .frame(
+                      minWidth: 100,
+                      maxWidth: .infinity,
+                      minHeight: 200,
+                      maxHeight: 300,
+                      alignment: .center
+                    )
+
             Spacer(minLength: 10)
             Button("Signin with Apple Id") {
                 self.signInWithApple.startSignInWithAppleFlow { didSucess in

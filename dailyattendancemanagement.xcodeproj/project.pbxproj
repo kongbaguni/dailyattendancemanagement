@@ -20,6 +20,8 @@
 		1B5610C726BCC2B70035D1BC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5610C626BCC2B70035D1BC /* Launch Screen.storyboard */; };
 		1B5610CC26BCC6CD0035D1BC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5610CB26BCC6CD0035D1BC /* MainView.swift */; };
 		1B5610D026BCCA680035D1BC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5610CF26BCCA680035D1BC /* RootView.swift */; };
+		1B5610D326BCCC7A0035D1BC /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5610D226BCCC7A0035D1BC /* LottieView.swift */; };
+		1B5610D526BCCD250035D1BC /* lottie in Resources */ = {isa = PBXBuildFile; fileRef = 1B5610D426BCCD250035D1BC /* lottie */; };
 		CFEFB703040669C4FF5F2DBA /* Pods_dailyattendancemanagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		1B5610CA26BCC5400035D1BC /* dailyattendancemanagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dailyattendancemanagement.entitlements; sourceTree = "<group>"; };
 		1B5610CB26BCC6CD0035D1BC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1B5610CF26BCCA680035D1BC /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1B5610D226BCCC7A0035D1BC /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		1B5610D426BCCD250035D1BC /* lottie */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lottie; sourceTree = "<group>"; };
 		55A67EEFB5B54218781CAACC /* Pods-dailyattendancemanagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dailyattendancemanagement.release.xcconfig"; path = "Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement.release.xcconfig"; sourceTree = "<group>"; };
 		75BAE704AC05E928581A4403 /* Pods-dailyattendancemanagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dailyattendancemanagement.debug.xcconfig"; path = "Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement.debug.xcconfig"; sourceTree = "<group>"; };
 		C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dailyattendancemanagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,15 +83,17 @@
 		1B3A50E926BBD89200F36EBB /* dailyattendancemanagement */ = {
 			isa = PBXGroup;
 			children = (
+				1B5610D426BCCD250035D1BC /* lottie */,
+				1B5610D126BCCC600035D1BC /* UIKit */,
 				1B5610CA26BCC5400035D1BC /* dailyattendancemanagement.entitlements */,
 				1B3A510A26BCBA7500F36EBB /* Extensions */,
 				1B3A510026BCB85D00F36EBB /* Firebase */,
 				1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */,
 				1B3A50EA26BBD89200F36EBB /* dailyattendancemanagementApp.swift */,
-				1B3A50FE26BCAE2B00F36EBB /* LoginView.swift */,
 				1B5610CF26BCCA680035D1BC /* RootView.swift */,
-				1B5610C626BCC2B70035D1BC /* Launch Screen.storyboard */,
+				1B3A50FE26BCAE2B00F36EBB /* LoginView.swift */,
 				1B5610CB26BCC6CD0035D1BC /* MainView.swift */,
+				1B5610C626BCC2B70035D1BC /* Launch Screen.storyboard */,
 				1B3A50EE26BBD89300F36EBB /* Assets.xcassets */,
 				1B5610C426BCC08C0035D1BC /* Color.xcassets */,
 				1B3A50F326BBD89300F36EBB /* Info.plist */,
@@ -120,6 +126,14 @@
 				1B3A510C26BCBA7500F36EBB /* Color+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1B5610D126BCCC600035D1BC /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				1B5610D226BCCC7A0035D1BC /* LottieView.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		36CCB026969E1EA5C2B2670F /* Pods */ = {
@@ -201,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3A50F226BBD89300F36EBB /* Preview Assets.xcassets in Resources */,
+				1B5610D526BCCD250035D1BC /* lottie in Resources */,
 				1B5610C526BCC08C0035D1BC /* Color.xcassets in Resources */,
 				1B3A50EF26BBD89300F36EBB /* Assets.xcassets in Resources */,
 				1B5610C726BCC2B70035D1BC /* Launch Screen.storyboard in Resources */,
@@ -278,6 +293,7 @@
 			files = (
 				1B5610D026BCCA680035D1BC /* RootView.swift in Sources */,
 				1B3A50FD26BBDDE100F36EBB /* AppDelegate.swift in Sources */,
+				1B5610D326BCCC7A0035D1BC /* LottieView.swift in Sources */,
 				1B5610CC26BCC6CD0035D1BC /* MainView.swift in Sources */,
 				1B3A50FF26BCAE2B00F36EBB /* LoginView.swift in Sources */,
 				1B3A510226BCB86B00F36EBB /* SigninWithApple.swift in Sources */,
