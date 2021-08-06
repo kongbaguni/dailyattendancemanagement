@@ -6,7 +6,11 @@ target 'dailyattendancemanagement' do
   use_frameworks!
 
   # Pods for dailyattendancemanagement
+pod 'Firebase/Auth'
 pod 'Firebase/Analytics'
 pod 'Firebase/Crashlytics'
-
+pod 'lottie-ios'
+#pod 'RxSwift'
+#pod 'RxRealm'
+#pod 'RxCocoa'
 end

@@ -9,11 +9,11 @@ import SwiftUI
 @main
 struct dailyattendancemanagementApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject private var viewRouter = ViewRouter()
+
     var body: some Scene {
         WindowGroup {
-            ContentView().onAppear(perform: {
-                print("!!!!")
-            })
+            RootView().environmentObject(viewRouter)
         }
     }
 }

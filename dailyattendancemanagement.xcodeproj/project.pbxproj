@@ -8,23 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		1B3A50EB26BBD89200F36EBB /* dailyattendancemanagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A50EA26BBD89200F36EBB /* dailyattendancemanagementApp.swift */; };
-		1B3A50ED26BBD89200F36EBB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A50EC26BBD89200F36EBB /* ContentView.swift */; };
 		1B3A50EF26BBD89300F36EBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50EE26BBD89300F36EBB /* Assets.xcassets */; };
 		1B3A50F226BBD89300F36EBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50F126BBD89300F36EBB /* Preview Assets.xcassets */; };
 		1B3A50FA26BBD8CF00F36EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */; };
 		1B3A50FD26BBDDE100F36EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */; };
+		1B3A50FF26BCAE2B00F36EBB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A50FE26BCAE2B00F36EBB /* LoginView.swift */; };
+		1B3A510226BCB86B00F36EBB /* SigninWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A510126BCB86B00F36EBB /* SigninWithApple.swift */; };
+		1B3A510D26BCBA7500F36EBB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A510B26BCBA7500F36EBB /* String+Extensions.swift */; };
+		1B3A510E26BCBA7500F36EBB /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A510C26BCBA7500F36EBB /* Color+Extensions.swift */; };
+		1B5610C526BCC08C0035D1BC /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B5610C426BCC08C0035D1BC /* Color.xcassets */; };
+		1B5610C726BCC2B70035D1BC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5610C626BCC2B70035D1BC /* Launch Screen.storyboard */; };
+		1B5610CC26BCC6CD0035D1BC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5610CB26BCC6CD0035D1BC /* MainView.swift */; };
+		1B5610D026BCCA680035D1BC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5610CF26BCCA680035D1BC /* RootView.swift */; };
 		CFEFB703040669C4FF5F2DBA /* Pods_dailyattendancemanagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1B3A50E726BBD89200F36EBB /* dailyattendancemanagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dailyattendancemanagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3A50EA26BBD89200F36EBB /* dailyattendancemanagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailyattendancemanagementApp.swift; sourceTree = "<group>"; };
-		1B3A50EC26BBD89200F36EBB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B3A50EE26BBD89300F36EBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B3A50F126BBD89300F36EBB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B3A50F326BBD89300F36EBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1B3A50FE26BCAE2B00F36EBB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1B3A510126BCB86B00F36EBB /* SigninWithApple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninWithApple.swift; sourceTree = "<group>"; };
+		1B3A510326BCBA2100F36EBB /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
+		1B3A510B26BCBA7500F36EBB /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		1B3A510C26BCBA7500F36EBB /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		1B5610C426BCC08C0035D1BC /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		1B5610C626BCC2B70035D1BC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1B5610CA26BCC5400035D1BC /* dailyattendancemanagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dailyattendancemanagement.entitlements; sourceTree = "<group>"; };
+		1B5610CB26BCC6CD0035D1BC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1B5610CF26BCCA680035D1BC /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		55A67EEFB5B54218781CAACC /* Pods-dailyattendancemanagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dailyattendancemanagement.release.xcconfig"; path = "Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement.release.xcconfig"; sourceTree = "<group>"; };
 		75BAE704AC05E928581A4403 /* Pods-dailyattendancemanagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dailyattendancemanagement.debug.xcconfig"; path = "Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement.debug.xcconfig"; sourceTree = "<group>"; };
 		C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dailyattendancemanagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,10 +79,17 @@
 		1B3A50E926BBD89200F36EBB /* dailyattendancemanagement */ = {
 			isa = PBXGroup;
 			children = (
+				1B5610CA26BCC5400035D1BC /* dailyattendancemanagement.entitlements */,
+				1B3A510A26BCBA7500F36EBB /* Extensions */,
+				1B3A510026BCB85D00F36EBB /* Firebase */,
 				1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */,
 				1B3A50EA26BBD89200F36EBB /* dailyattendancemanagementApp.swift */,
-				1B3A50EC26BBD89200F36EBB /* ContentView.swift */,
+				1B3A50FE26BCAE2B00F36EBB /* LoginView.swift */,
+				1B5610CF26BCCA680035D1BC /* RootView.swift */,
+				1B5610C626BCC2B70035D1BC /* Launch Screen.storyboard */,
+				1B5610CB26BCC6CD0035D1BC /* MainView.swift */,
 				1B3A50EE26BBD89300F36EBB /* Assets.xcassets */,
+				1B5610C426BCC08C0035D1BC /* Color.xcassets */,
 				1B3A50F326BBD89300F36EBB /* Info.plist */,
 				1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */,
 				1B3A50F026BBD89300F36EBB /* Preview Content */,
@@ -82,6 +105,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1B3A510026BCB85D00F36EBB /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				1B3A510126BCB86B00F36EBB /* SigninWithApple.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		1B3A510A26BCBA7500F36EBB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B3A510B26BCBA7500F36EBB /* String+Extensions.swift */,
+				1B3A510C26BCBA7500F36EBB /* Color+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		36CCB026969E1EA5C2B2670F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +134,7 @@
 		5D678734D31ABFFCF6B27C79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B3A510326BCBA2100F36EBB /* CryptoKit.framework */,
 				C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */,
 			);
 			name = Frameworks;
@@ -160,7 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3A50F226BBD89300F36EBB /* Preview Assets.xcassets in Resources */,
+				1B5610C526BCC08C0035D1BC /* Color.xcassets in Resources */,
 				1B3A50EF26BBD89300F36EBB /* Assets.xcassets in Resources */,
+				1B5610C726BCC2B70035D1BC /* Launch Screen.storyboard in Resources */,
 				1B3A50FA26BBD8CF00F36EBB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,8 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B5610D026BCCA680035D1BC /* RootView.swift in Sources */,
 				1B3A50FD26BBDDE100F36EBB /* AppDelegate.swift in Sources */,
-				1B3A50ED26BBD89200F36EBB /* ContentView.swift in Sources */,
+				1B5610CC26BCC6CD0035D1BC /* MainView.swift in Sources */,
+				1B3A50FF26BCAE2B00F36EBB /* LoginView.swift in Sources */,
+				1B3A510226BCB86B00F36EBB /* SigninWithApple.swift in Sources */,
+				1B3A510E26BCBA7500F36EBB /* Color+Extensions.swift in Sources */,
+				1B3A510D26BCBA7500F36EBB /* String+Extensions.swift in Sources */,
 				1B3A50EB26BBD89200F36EBB /* dailyattendancemanagementApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = dailyattendancemanagement/dailyattendancemanagement.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"dailyattendancemanagement/Preview Content\"";
 				DEVELOPMENT_TEAM = QU9EPTU238;
@@ -374,7 +423,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.kongbaguni.dailyattendancemanagement.dailyattendancemanagement;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kongbaguni.dailyattendancemanagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -387,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = dailyattendancemanagement/dailyattendancemanagement.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"dailyattendancemanagement/Preview Content\"";
 				DEVELOPMENT_TEAM = QU9EPTU238;
@@ -397,7 +447,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.kongbaguni.dailyattendancemanagement.dailyattendancemanagement;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kongbaguni.dailyattendancemanagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
