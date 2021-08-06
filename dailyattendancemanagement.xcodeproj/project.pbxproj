@@ -86,20 +86,18 @@
 			isa = PBXGroup;
 			children = (
 				1B5610D426BCCD250035D1BC /* lottie */,
-				1B5610D126BCCC600035D1BC /* UIKit */,
-				1B5610CA26BCC5400035D1BC /* dailyattendancemanagement.entitlements */,
-				1B3A510A26BCBA7500F36EBB /* Extensions */,
-				1B3A510026BCB85D00F36EBB /* Firebase */,
-				1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */,
-				1B3A50EA26BBD89200F36EBB /* dailyattendancemanagementApp.swift */,
-				1B5610CF26BCCA680035D1BC /* RootView.swift */,
-				1B3A50FE26BCAE2B00F36EBB /* LoginView.swift */,
-				1B5610CB26BCC6CD0035D1BC /* MainView.swift */,
-				1B5610C626BCC2B70035D1BC /* Launch Screen.storyboard */,
 				1B3A50EE26BBD89300F36EBB /* Assets.xcassets */,
 				1B5610C426BCC08C0035D1BC /* Color.xcassets */,
 				1B3A50F326BBD89300F36EBB /* Info.plist */,
 				1B3A50F926BBD8CF00F36EBB /* GoogleService-Info.plist */,
+				1B5610CA26BCC5400035D1BC /* dailyattendancemanagement.entitlements */,
+				1B5610C626BCC2B70035D1BC /* Launch Screen.storyboard */,
+				1B3A50FC26BBDDE100F36EBB /* AppDelegate.swift */,
+				1B3A50EA26BBD89200F36EBB /* dailyattendancemanagementApp.swift */,
+				1B5610D126BCCC600035D1BC /* UIKit */,
+				1B3A510A26BCBA7500F36EBB /* FoundationExtensions */,
+				1B3A510026BCB85D00F36EBB /* Firebase */,
+				1B5610D826BCF5420035D1BC /* View */,
 				1B3A50F026BBD89300F36EBB /* Preview Content */,
 			);
 			path = dailyattendancemanagement;
@@ -121,13 +119,13 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
-		1B3A510A26BCBA7500F36EBB /* Extensions */ = {
+		1B3A510A26BCBA7500F36EBB /* FoundationExtensions */ = {
 			isa = PBXGroup;
 			children = (
 				1B3A510B26BCBA7500F36EBB /* String+Extensions.swift */,
 				1B3A510C26BCBA7500F36EBB /* Color+Extensions.swift */,
 			);
-			path = Extensions;
+			path = FoundationExtensions;
 			sourceTree = "<group>";
 		};
 		1B5610D126BCCC600035D1BC /* UIKit */ = {
@@ -137,6 +135,16 @@
 				1B5610D626BCE4490035D1BC /* SignInWithAppleButton.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		1B5610D826BCF5420035D1BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1B5610CF26BCCA680035D1BC /* RootView.swift */,
+				1B3A50FE26BCAE2B00F36EBB /* LoginView.swift */,
+				1B5610CB26BCC6CD0035D1BC /* MainView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		36CCB026969E1EA5C2B2670F /* Pods */ = {

@@ -31,12 +31,13 @@ struct LoginView: View {
 
             Spacer(minLength: 10)
             SignInWithAppleButton().frame(width: 140, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).onTapGesture {
-                self.signInWithApple.startSignInWithAppleFlow { didSucess in
-                    if didSucess {
+                self.signInWithApple.startSignInWithAppleFlow { result in
+                    if let result = result {
                         self.viewRouter.currentView = .main
+                        print(result)
                     }
                 }
-            }.cornerRadius(15)
+            }
             Button("Signin with Google") {
                 
             }

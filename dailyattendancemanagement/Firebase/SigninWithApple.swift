@@ -13,7 +13,7 @@ import FirebaseAuth
 import SwiftUI
 
 class SigninWithApple: NSObject {
-    fileprivate var callback:(_ signInDidSucess:Bool)->Void = {_ in }
+    fileprivate var callback:(_ authResult:AuthDataResult?)->Void = {_ in }
     // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
@@ -48,7 +48,7 @@ class SigninWithApple: NSObject {
     
     // Unhashed nonce.
     fileprivate var currentNonce: String?
-    func startSignInWithAppleFlow(completed:@escaping(_ signInDidSucess:Bool)->Void) {
+    func startSignInWithAppleFlow(completed:@escaping(_ authResult:AuthDataResult?)->Void) {
         callback = completed
         let nonce = randomNonceString()
         currentNonce = nonce
@@ -68,7 +68,7 @@ class SigninWithApple: NSObject {
 extension SigninWithApple : ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         debugPrint(error.localizedDescription)
-        callback(false)
+        callback(nil)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
@@ -97,14 +97,13 @@ extension SigninWithApple : ASAuthorizationControllerDelegate {
             // Sign in with Firebase.
             
             Auth.auth().signIn(with: credential) {[weak self](authResult, error) in
-                
                 if let err = error {
                     debugPrint(err.localizedDescription)
-                    self?.callback(false)
+                    self?.callback(nil)
                     return
                 }
                 debugPrint("sign in sucess")
-                self?.callback(true)
+                self?.callback(authResult)
             }
         }
     }

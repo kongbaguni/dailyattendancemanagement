@@ -22,20 +22,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="externaldrive" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-3N-32O">
-                                <rect key="frame" x="0.0" y="45.5" width="414" height="814.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-built_white" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-3N-32O">
+                                <rect key="frame" x="107" y="822" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="D78-7J-vNp"/>
+                                    <constraint firstAttribute="height" constant="40" id="IAy-t5-uc3"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
-                            <constraint firstItem="xfy-3N-32O" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="HzB-vA-Hmv"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="xfy-3N-32O" secondAttribute="bottom" id="VxA-lG-Nww"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="xfy-3N-32O" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" id="dq1-Xw-4Ls"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="xfy-3N-32O" secondAttribute="trailing" id="fWk-eY-yDK"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="xfy-3N-32O" secondAttribute="bottom" id="bry-Wc-9d6"/>
+                            <constraint firstItem="xfy-3N-32O" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="tqV-91-IRu"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,7 +47,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="externaldrive" catalog="system" width="128" height="88"/>
+        <image name="logo-built_white" width="376" height="168"/>
         <namedColor name="backgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
