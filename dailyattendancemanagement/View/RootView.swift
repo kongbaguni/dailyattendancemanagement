@@ -8,12 +8,12 @@
 import SwiftUI
 
 enum AppView {
-    case login, main
+    case ready, login, main
 }
 
 class ViewRouter: ObservableObject {
     // here you can decide which view to show at launch
-    @Published var currentView: AppView = .login
+    @Published var currentView: AppView = .ready
 }
 
 struct RootView: View {
@@ -21,6 +21,16 @@ struct RootView: View {
     
     var body: some View {
         switch viewRouter.currentView {
+        case .ready:            
+            ReadyView().onAppear(perform: {
+                AuthManager.shared.autoSignIn { result in
+                    if result == nil {
+                        viewRouter.currentView = .login
+                    } else {
+                        viewRouter.currentView = .main
+                    }
+                }
+            })
         case .login:
             LoginView()
         case .main:

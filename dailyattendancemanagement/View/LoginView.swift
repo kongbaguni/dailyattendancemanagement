@@ -34,12 +34,16 @@ struct LoginView: View {
                 self.signInWithApple.startSignInWithAppleFlow { result in
                     if let result = result {
                         self.viewRouter.currentView = .main
-                        print(result)
+                        print(result)                                                                        
                     }
                 }
             }
             Button("Signin with Google") {
-                
+                GoogleSignIn.signin { isSucess in
+                    if isSucess {
+                        self.viewRouter.currentView = .main
+                    }                    
+                }
             }
             Image(uiImage: #imageLiteral(resourceName: "logo-built_white"))
                 .resizable()
