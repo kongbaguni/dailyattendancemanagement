@@ -12,4 +12,8 @@ extension Color {
     static var backgroundColor:Color {
         Color("backgroundColor")
     }
+    
+    static var strongTextColor:Color {
+        Color("strongTextColor")
+    }
 }

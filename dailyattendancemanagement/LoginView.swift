@@ -18,8 +18,8 @@ struct LoginView: View {
             Spacer(minLength: 10)
             Text("일일 근태 관리")
                 .font(.title)
-                .foregroundColor(.white)
-                .shadow(color: .blue, radius: 10, x: 0.0, y: 0.5)
+                .foregroundColor(.backgroundColor)
+                .shadow(color: .backgroundColor, radius: 30, x: 0.0, y: 0.5)
             LottieView(filename: "lottie/work")
                 .frame(
                       minWidth: 100,
@@ -30,16 +30,19 @@ struct LoginView: View {
                     )
 
             Spacer(minLength: 10)
-            Button("Signin with Apple Id") {
+            SignInWithAppleButton().frame(width: 140, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).onTapGesture {
                 self.signInWithApple.startSignInWithAppleFlow { didSucess in
                     if didSucess {
                         self.viewRouter.currentView = .main
                     }
                 }
-            }
+            }.cornerRadius(15)
             Button("Signin with Google") {
                 
             }
+            Image(uiImage: #imageLiteral(resourceName: "logo-built_white"))
+                .resizable()
+                .frame(width: 100, height: 40, alignment: .bottomTrailing)
         }
         .frame(
               minWidth: 0,
@@ -60,7 +63,7 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
             
     }
 }
