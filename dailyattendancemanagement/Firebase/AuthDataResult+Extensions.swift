@@ -11,7 +11,7 @@ import FirebaseAuth
 
 extension AuthDataResult {
     var name:String? {
-        return additionalUserInfo?.profile?["name"] as? String ?? email?.components(separatedBy: "@").first
+        return additionalUserInfo?.profile?["name"] as? String 
     }
     var email:String? {
         return additionalUserInfo?.profile?["email"] as? String

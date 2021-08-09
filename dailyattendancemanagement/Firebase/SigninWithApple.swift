@@ -72,12 +72,8 @@ extension SigninWithApple : ASAuthorizationControllerDelegate {
                     self?.callback(nil)
                     return
                 }
-                if let name = authResult?.name,
-                   let email = authResult?.email {
-                    KeyChainUtill.shared.profile = .init(name: name, email: email, imageURL: nil)
-                }
-                                
-                debugPrint("sign in sucess")
+                ProfileModel.currentEmail = authResult?.email
+                
                 self?.callback(authResult)
             }
         }

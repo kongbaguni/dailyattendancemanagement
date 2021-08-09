@@ -63,29 +63,4 @@ class KeyChainUtill {
         }
     }
     
-    struct ProfileData {
-        let name:String
-        let email:String
-        let imageURL:URL?
-    }
-    
-    var profile : ProfileData? {
-        get {
-            guard let name = get(key: "profile_name"), let email = get(key: "profile_email") else {
-                return nil
-            }
-            var imageURL:URL? = nil
-            if let str = get(key: "profile_imageURL") {
-                imageURL = URL(string: str)
-            }
-            return .init(name: name,
-                         email: email,
-                         imageURL: imageURL)
-        }
-        set {
-            set(key: "profile_name", value: newValue?.name)
-            set(key: "profile_email", value: newValue?.email)
-            set(key: "profile_imageURL", value: newValue?.imageURL?.absoluteString)
-        }
-    }
 }

@@ -18,7 +18,9 @@ struct MainView: View {
                 viewRouter.currentView = .login
             }
         }.onAppear(perform: {
-            print(KeyChainUtill.shared.profile ?? "없음")
+            
+            print(ProfileModel.current?.name ?? "이름없음")
+            print(ProfileModel.current?.email ?? "프로필 이미지 없음")
         })
         
     }

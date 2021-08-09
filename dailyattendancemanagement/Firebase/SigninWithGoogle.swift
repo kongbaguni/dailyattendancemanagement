@@ -28,7 +28,12 @@ struct GoogleSignIn {
             }
             if let p = user?.profile {
                 let imageURL = p.imageURL(withDimension: 0)
-                KeyChainUtill.shared.profile = .init(name: p.name, email: p.email, imageURL: imageURL)
+                Profile.shared.email = p.email
+                Profile.shared.name = p.name
+                Profile.shared.profileImageURL = imageURL?.absoluteURL
+                Profile.shared.update {
+                    
+                } 
             }
             complete(true)
         }
