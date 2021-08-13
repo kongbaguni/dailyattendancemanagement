@@ -65,15 +65,20 @@ extension SigninWithApple : ASAuthorizationControllerDelegate {
                                                       rawNonce: nonce)
 
             // Sign in with Firebase.
-            
-            Auth.auth().signIn(with: credential) {[weak self](authResult, error) in
+            let auth = Auth.auth()
+            auth.signIn(with: credential) {[weak self](authResult, error) in
                 if let err = error {
                     debugPrint(err.localizedDescription)
                     self?.callback(nil)
                     return
                 }
-                ProfileModel.currentEmail = authResult?.email
+
                 
+                if let email = auth.currentUser?.email,
+                   let name = auth.currentUser?.displayName,
+                   let uid = auth.currentUser?.uid {
+                    ProfileModel.update(uid: uid, email: email, name: name, profileImageURL: nil)
+                }
                 self?.callback(authResult)
             }
         }

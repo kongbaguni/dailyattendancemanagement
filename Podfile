@@ -18,10 +18,9 @@ target 'dailyattendancemanagement' do
   pod 'Firebase/Storage'
   pod 'AlamofireImage'
   pod 'RealmSwift'
-  
+  pod 'SDWebImageSwiftUI'
   pod 'RxRealm'
 
-  #pod 'RxSwift'
-  #pod 'RxRealm'
-  #pod 'RxCocoa'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end

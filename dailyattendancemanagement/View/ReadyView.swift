@@ -19,6 +19,7 @@ struct ReadyView: View {
                     maxHeight: 300,
                     alignment: .center
                 )
+                .shadow(radius: 20)
             Spacer(minLength: 10)
             Image(uiImage: #imageLiteral(resourceName: "logo-built_white"))
                 .resizable()
@@ -44,5 +45,6 @@ struct ReadyView: View {
 struct ReadyView_Previews: PreviewProvider {
     static var previews: some View {
         ReadyView()
+            .previewDevice("iPad Air (4th generation)")
     }
 }

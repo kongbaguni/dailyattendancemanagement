@@ -7,54 +7,64 @@
 
 import Foundation
 import RealmSwift
+import FirebaseAuth
 import FirebaseFirestore
 
 class ProfileModel : Object {
-    static var currentEmail:String? = nil
+    static var currentUid:String? {
+        return Auth.auth().currentUser?.uid
+    }
     
+    @objc dynamic var uid:String = ""
     @objc dynamic var email:String = ""
     @objc dynamic var name:String = ""
-    @objc dynamic var profileImageUrl:String = ""
+    @objc dynamic var profileImageURL:String = ""
+    @objc dynamic var googleProfileImageUrl:String = ""
+    @objc dynamic var lastSignInTimeIntervalSince1970:Double = 0
+    
+    var lastSigninDate:Date {
+        return Date(timeIntervalSince1970: lastSignInTimeIntervalSince1970)
+    }
+    
+    override static func primaryKey() -> String? {
+        return "uid"
+    }
 }
     
 extension ProfileModel {
-
     static var current:ProfileModel? {
-        if let email = ProfileModel.currentEmail {
-            return try! Realm().object(ofType: ProfileModel.self, forPrimaryKey: email)
+        if let id = currentUid {
+            return try! Realm().object(ofType: ProfileModel.self, forPrimaryKey: id)
         }
         return nil
     }
-    
-    static func create(email:String,name:String) {
-        
-    }
-    
-    static func getInfo() {
-        guard let email = ProfileModel.currentEmail else {
-            return
+
+    static func update(uid:String, email:String, name:String, profileImageURL:String?) {        
+        var data:[String:AnyHashable] = [
+            "uid":uid,
+            "email":email,
+            "name":name,
+            "lastSignInTimeIntervalSince1970":Date().timeIntervalSince1970
+        ]
+        if let url = profileImageURL {
+            data["googleProfileImageUrl"] = url
         }
-        let document = Firestore.firestore().collection("profile").document(email)
-        document.getDocument { snapshot, error in
-            if let data = snapshot?.data() {
-                let realm = try! Realm()
-                try! realm.write{
-                    realm.create(ProfileModel.self, value: data, update: .modified)
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.create(ProfileModel.self, value: data, update: .modified)
+        }
+        
+        
+        let profile = Firestore.firestore().collection("profile")        
+        profile.document(uid).updateData(data) { error in
+            if error != nil {
+                profile.document(uid).setData(data) { error in
+                    
                 }
             }
         }
     }
     
-    func update(complete:@escaping()->Void) {
-        let data = [
-            "email":email,
-            "name":name,
-            "profileImageURL":profileImageUrl
-        ]
-        
-        let document = Firestore.firestore().collection("profile").document(email)
-        document.updateData(data) { error in
-            
-        }
-    }
+
 }

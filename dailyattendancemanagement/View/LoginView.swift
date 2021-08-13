@@ -28,9 +28,10 @@ struct LoginView: View {
                       maxHeight: 300,
                       alignment: .center
                     )
+                .shadow(radius: 20)
 
             Spacer(minLength: 10)
-            SignInWithAppleButton().frame(width: 140, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).onTapGesture {
+            SignInWithAppleButton().frame(width: 140, height: 30, alignment: .center).onTapGesture {
                 self.signInWithApple.startSignInWithAppleFlow { result in
                     if let result = result {
                         self.viewRouter.currentView = .main
