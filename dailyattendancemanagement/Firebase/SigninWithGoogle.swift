@@ -40,7 +40,7 @@ struct GoogleSignIn {
                    let email = user?.profile?.email,
                    let name = user?.profile?.name,
                    let photoURL = user?.profile?.imageURL(withDimension: 0)?.absoluteString {
-                    ProfileModel.update(uid: uid, email: email, name: name, profileImageURL: photoURL )
+                    ProfileModel.update(uid: uid, email: email, name: name, profileImageURL: photoURL, nameColor: nil)
                     complete(true)
                     return
                 }

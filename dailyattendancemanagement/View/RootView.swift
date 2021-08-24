@@ -23,6 +23,7 @@ struct RootView: View {
         switch viewRouter.currentView {
         case .ready:            
             ReadyView().onAppear(perform: {
+                LocationManager.shared.request()
                 AuthManager.shared.autoSignIn { result in
                     if result == nil {
                         viewRouter.currentView = .login

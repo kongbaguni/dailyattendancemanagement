@@ -24,6 +24,7 @@ struct ReadyView: View {
             Image(uiImage: #imageLiteral(resourceName: "logo-built_white"))
                 .resizable()
                 .frame(width: 100, height: 40, alignment: .bottomTrailing)
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
 
         }
         .frame(

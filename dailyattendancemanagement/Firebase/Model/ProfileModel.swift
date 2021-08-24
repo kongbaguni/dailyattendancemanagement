@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 import FirebaseAuth
 import FirebaseFirestore
+import SwiftUI
 
 class ProfileModel : Object {
     static var currentUid:String? {
@@ -21,6 +22,11 @@ class ProfileModel : Object {
     @objc dynamic var profileImageURL:String = ""
     @objc dynamic var googleProfileImageUrl:String = ""
     @objc dynamic var lastSignInTimeIntervalSince1970:Double = 0
+    @objc dynamic var nameColor_red:Double = 1
+    @objc dynamic var nameColor_green:Double = 1
+    @objc dynamic var nameColor_blue:Double = 1
+    @objc dynamic var nameColor_opacity:Double = 1
+
     
     var lastSigninDate:Date {
         return Date(timeIntervalSince1970: lastSignInTimeIntervalSince1970)
@@ -32,6 +38,10 @@ class ProfileModel : Object {
 }
     
 extension ProfileModel {
+    var nameColor:Color {
+        return .init(.sRGB, red: nameColor_red, green: nameColor_green, blue: nameColor_blue, opacity: nameColor_opacity)
+    }
+    
     static var current:ProfileModel? {
         if let id = currentUid {
             return try! Realm().object(ofType: ProfileModel.self, forPrimaryKey: id)
@@ -39,7 +49,7 @@ extension ProfileModel {
         return nil
     }
 
-    static func update(uid:String, email:String, name:String, profileImageURL:String?) {        
+    static func update(uid:String, email:String, name:String, profileImageURL:String?, nameColor:Color?) {
         var data:[String:AnyHashable] = [
             "uid":uid,
             "email":email,
@@ -48,6 +58,12 @@ extension ProfileModel {
         ]
         if let url = profileImageURL {
             data["googleProfileImageUrl"] = url
+        }
+        if let color = nameColor {
+            data["nameColor_red"] = color.components.red
+            data["nameColor_green"] = color.components.green
+            data["nameColor_blue"] = color.components.blue
+            data["nameColor_opacity"] = color.components.opacity
         }
         
         let realm = try! Realm()

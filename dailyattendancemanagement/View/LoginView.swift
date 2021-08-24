@@ -16,9 +16,12 @@ struct LoginView: View {
     var body: some View {
         VStack{            
             Spacer(minLength: 10)
-            Text("일일 근태 관리")
+            Text("출근부")
                 .font(.title)
-                .foregroundColor(.backgroundColor)
+                .foregroundColor(.black)
+                .frame(width: 200, height: 100, alignment: .center)
+                .background(RadialGradient(gradient: Gradient(colors: [.white, .yellow]), center: .center, startRadius: 5, endRadius: 100))
+                .cornerRadius(40)
                 .shadow(color: .backgroundColor, radius: 30, x: 0.0, y: 0.5)
             LottieView(filename: "lottie/work")
                 .frame(
@@ -49,6 +52,7 @@ struct LoginView: View {
             Image(uiImage: #imageLiteral(resourceName: "logo-built_white"))
                 .resizable()
                 .frame(width: 100, height: 40, alignment: .bottomTrailing)
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
         }
         .frame(
               minWidth: 0,
