@@ -10,17 +10,19 @@ target 'dailyattendancemanagement' do
   pod 'KeychainAccess'
   pod 'GoogleSignIn'
   pod 'Firebase/Auth'
+  pod 'Firebase/AppCheck'
+
+  pod 'Firebase/Performance'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/Performance'
   pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
+ 
+  
   pod 'AlamofireImage'
   pod 'RealmSwift'
   pod 'SDWebImageSwiftUI'
   pod 'RxRealm'
-
   pod 'RxSwift'
   pod 'RxCocoa'
 end

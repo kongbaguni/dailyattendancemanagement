@@ -12,9 +12,8 @@ import AlamofireImage
 
 struct FirebaseStorageManager {
     static let shared = FirebaseStorageManager()
-    let storageRef = Storage.storage().reference()
     
-    func uploadImage(fileUrl url:URL, uploadSize:CGSize, uploadURL:String, complete:@escaping(_ downloadURL:URL?)->Void) {
+    func uploadImage(fileUrl url:URL, uploadSize:CGSize, uploadPath:String, complete:@escaping(_ downloadURL:URL?)->Void) {
         guard var data = try? Data(contentsOf: url) else {
             complete(nil)
             return
@@ -25,9 +24,12 @@ struct FirebaseStorageManager {
             }
         }
         
-        let ref:StorageReference = storageRef.child(uploadURL)
+        let ref:StorageReference = Storage.storage().reference().child(uploadPath)
+        
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
+        
+        
         let task = ref.putData(data, metadata: metadata)
         task.observe(.success) { (snapshot) in
                     let path = snapshot.reference.fullPath
@@ -39,7 +41,10 @@ struct FirebaseStorageManager {
                         complete(downloadUrl)
                     }
                 }
-        task.observe(.failure) { (_) in
+        task.observe(.failure) { snapshot in
+            print("--------------------")
+            print(snapshot.error ?? "에러 없음")
+            print("--------------------")
             complete(nil)
         }
     }

@@ -37,6 +37,7 @@
 		1BB6F75926D4D7A0008F00EC /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6F75826D4D7A0008F00EC /* ColorPickerView.swift */; };
 		1BB6F75B26D4DB05008F00EC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6F75A26D4DB05008F00EC /* ProfileView.swift */; };
 		1BB6F75E26D5BAFE008F00EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BB6F76026D5BAFE008F00EC /* Localizable.strings */; };
+		1BB6F76326D5FBAE008F00EC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6F76226D5FBAE008F00EC /* ImagePicker.swift */; };
 		C3600C2026C24AC5008271D4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3600C1F26C24AC5008271D4 /* Date+Extensions.swift */; };
 		CFEFB703040669C4FF5F2DBA /* Pods_dailyattendancemanagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C0BF00DA414348E236EAFB /* Pods_dailyattendancemanagement.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		1BB6F75A26D4DB05008F00EC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1BB6F75F26D5BAFE008F00EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1BB6F76126D5BB03008F00EC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1BB6F76226D5FBAE008F00EC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		55A67EEFB5B54218781CAACC /* Pods-dailyattendancemanagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dailyattendancemanagement.release.xcconfig"; path = "Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement.release.xcconfig"; sourceTree = "<group>"; };
 		75BAE704AC05E928581A4403 /* Pods-dailyattendancemanagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dailyattendancemanagement.debug.xcconfig"; path = "Target Support Files/Pods-dailyattendancemanagement/Pods-dailyattendancemanagement.debug.xcconfig"; sourceTree = "<group>"; };
 		C3600C1F26C24AC5008271D4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				1B5610D226BCCC7A0035D1BC /* LottieView.swift */,
 				1B5610D626BCE4490035D1BC /* SignInWithAppleButton.swift */,
+				1BB6F76226D5FBAE008F00EC /* ImagePicker.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			files = (
 				1B5610D726BCE4490035D1BC /* SignInWithAppleButton.swift in Sources */,
 				1B74EF1126BCF6500001231F /* KeyChainUtill.swift in Sources */,
+				1BB6F76326D5FBAE008F00EC /* ImagePicker.swift in Sources */,
 				1B5610D026BCCA680035D1BC /* RootView.swift in Sources */,
 				1B8C173126C119FC0059BDE8 /* ProfileModel.swift in Sources */,
 				1B74EF1726BCFF8B0001231F /* AuthManager.swift in Sources */,
