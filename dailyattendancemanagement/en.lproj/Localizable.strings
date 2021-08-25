@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  dailyattendancemanagement
+
+  Created by Changyeol Seo on 2021/08/25.
+  
+*/
+"home-title" = "HOME";
+"profile-title" = "profile";
+"signOut-title" = "sign out";
+
+"name-title" = "name";
+"nickname-title" = "nickname";
+"nameColor-title" = "name of color";
+"nameBgColor-title" = "name of background color";
+"email-title" = "email";
+"inputNickName-title" = "input nickname";

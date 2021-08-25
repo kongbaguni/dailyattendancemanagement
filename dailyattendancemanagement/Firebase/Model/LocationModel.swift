@@ -17,6 +17,10 @@ class LocationModel: Object {
 
 
 extension LocationModel {
+    var locationCoordinate2D:CLLocationCoordinate2D {
+        .init(latitude: latitude, longitude: longitude)
+    }
+    
     static func create(location:CLLocation) {
         let realm = try! Realm()
         try! realm.write{

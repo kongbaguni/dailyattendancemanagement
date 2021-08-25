@@ -19,13 +19,13 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("profile", destination: ProfileView())
-                Button("sign out") {
+                NavigationLink("profile-title".localized, destination: ProfileView())
+                Button("signOut-title".localized) {
                     AuthManager.shared.signOut()
                     viewRouter.currentView = .login
                 }
             }
-            .navigationTitle("HOME")
+            .navigationTitle("home-title".localized)
         }
     }
 }

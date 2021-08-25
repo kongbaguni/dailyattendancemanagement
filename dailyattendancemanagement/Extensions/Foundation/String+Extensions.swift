@@ -8,12 +8,11 @@
 
 import Foundation
 import CryptoKit
-
+import SwiftUI
 extension String {
     /** 다국어 번역 지원 */
-    var localized:String {
-        let value = NSLocalizedString(self, comment:"")
-        return value
+    var localized:LocalizedStringKey {
+        return LocalizedStringKey(self)
     }
 }
 

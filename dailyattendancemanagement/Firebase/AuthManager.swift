@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import RealmSwift
 
 class AuthManager {
     static let shared = AuthManager()
@@ -25,6 +26,10 @@ class AuthManager {
     func signOut() {
         do {
             try Auth.auth().signOut()
+            let realm = try Realm()
+            try realm.write {
+                realm.deleteAll()
+            }
         } catch {
             print(error.localizedDescription)
             return

@@ -77,7 +77,9 @@ extension SigninWithApple : ASAuthorizationControllerDelegate {
                 if let email = auth.currentUser?.email,
                    let name = auth.currentUser?.displayName,
                    let uid = auth.currentUser?.uid {
-                    ProfileModel.update(uid: uid, email: email, name: name, profileImageURL: nil, nameColor: nil)
+                    ProfileModel.update(uid: uid, email: email, name: name, profileImageURL: nil, nameColor: nil) { _ in 
+                        
+                    }
                 }
                 self?.callback(authResult)
             }
