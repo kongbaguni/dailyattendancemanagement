@@ -66,12 +66,13 @@ extension ProfileModel {
         return nil
     }
     
-    func getDataFromFireStore() {
+    func getDataFromFireStore(complete:@escaping()->Void) {
         Firestore.firestore().collection("profile").document(uid).getDocument { snapShot, error in
             if let data = snapShot?.data() {
                 let realm = try! Realm()
                 try! realm.write {
                     realm.create(ProfileModel.self, value: data, update: .modified)
+                    complete()
                 }
             }
         }        
@@ -123,8 +124,9 @@ extension ProfileModel {
                 }
                 return
             }
-            ProfileModel.current?.getDataFromFireStore()
-            complete(nil)
+            ProfileModel.current?.getDataFromFireStore() {
+                complete(nil)
+            }
         }
     }
     

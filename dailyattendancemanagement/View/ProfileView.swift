@@ -35,7 +35,7 @@ struct ProfileView: View {
                 VStack {
                     WebImage(url: URL(string: profileUrl))
                         .resizable(capInsets: .init(top: 0, leading: 0, bottom: 0, trailing: 0), resizingMode: .stretch)
-                        .frame(width: 50, height: 50, alignment: .center)
+                        .frame(width: 150, height: 150, alignment: .center)
                         .border(nameColor, width: 2)
                     Spacer()
                 }
@@ -92,22 +92,28 @@ struct ProfileView: View {
                                     
                                 })
         )
-        .navigationTitle("profile-title".localized)
+        .navigationBarTitle("profile-title".localized)
         .onAppear(perform: {
+            
             LocationManager.shared.start()
 
             UITextField.appearance().clearButtonMode = .whileEditing
             guard let profile = ProfileModel.current else {
                 return
             }
-            textName = profile.name
-            textNickName = profile.nickname
-            textEmail = profile.email
-            profileUrl = profile.googleProfileImageUrl
-            textLastSigninDate = profile.lastSigninDate.formatedString(format: "yyyy년 M월 d일 H시 m분 s초")!
-            nameColor = profile.nameColor
-            nameBgColor = profile.nameBgColor
-            
+            func loadData() {
+                textName = profile.name
+                textNickName = profile.nickname
+                textEmail = profile.email
+                profileUrl = profile.googleProfileImageUrl
+                textLastSigninDate = profile.lastSigninDate.formatedString(format: "yyyy년 M월 d일 H시 m분 s초")!
+                nameColor = profile.nameColor
+                nameBgColor = profile.nameBgColor
+            }
+            profile.getDataFromFireStore {
+                loadData()
+            }
+            loadData()            
             
             Observable.collection(from: try! Realm().objects(LocationModel.self)).subscribe { event in
                 switch event {
