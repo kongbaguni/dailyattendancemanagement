@@ -15,3 +15,7 @@
 "nameBgColor-title" = "name of background color";
 "email-title" = "email";
 "inputNickName-title" = "input nickname";
+
+"profilePhoto-title" = "profile photo";
+"selectPhoto-title" = "select photo";
+"deletePhoto-title" = "delete photo";

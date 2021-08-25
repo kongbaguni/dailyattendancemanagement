@@ -22,6 +22,7 @@ class ProfileModel : Object {
     @objc dynamic var nickname:String = ""
     @objc dynamic var profileImageURL:String = ""
     @objc dynamic var googleProfileImageUrl:String = ""
+    @objc dynamic var firestoreProfileImageUrl:String = ""
     @objc dynamic var lastSignInTimeIntervalSince1970:Double = 0
     @objc dynamic var nameColor_red:Double = 1
     @objc dynamic var nameColor_green:Double = 1
@@ -43,6 +44,12 @@ class ProfileModel : Object {
 }
     
 extension ProfileModel {
+    var profileURL:URL? {
+        if firestoreProfileImageUrl.isEmpty == false {
+            return URL(string: firestoreProfileImageUrl)
+        }
+        return URL(string: googleProfileImageUrl)
+    }
     
     var nameValue:String {
         if nickname.isEmpty == false {
@@ -78,7 +85,7 @@ extension ProfileModel {
         }        
     }
 
-    static func update(uid:String, email:String, name:String?, nickname:String? = nil, profileImageURL:String? = nil , nameColor:Color? = nil, nameBgColor:Color? = nil, complete:@escaping(_ error:Error?)->Void) {
+    static func update(uid:String, email:String, name:String?, nickname:String? = nil, profileImageURL:String? = nil, uploadedProfileImageURL:String? = nil,  nameColor:Color? = nil, nameBgColor:Color? = nil, complete:@escaping(_ error:Error?)->Void) {
         var data:[String:AnyHashable] = [
             "uid":uid,
             "email":email,
@@ -94,6 +101,10 @@ extension ProfileModel {
         
         if let url = profileImageURL {
             data["googleProfileImageUrl"] = url
+        }
+        
+        if let url = uploadedProfileImageURL {
+            data["firestoreProfileImageUrl"] = url
         }
         
         if let color = nameColor {

@@ -15,3 +15,7 @@
 "nameBgColor-title" = "이름 배경색상";
 "email-title" = "email";
 "inputNickName-title" = "별명 입력";
+
+"profilePhoto-title" = "프로필 사진";
+"selectPhoto-title" = "사진 선택";
+"deletePhoto-title" = "사진 삭재";

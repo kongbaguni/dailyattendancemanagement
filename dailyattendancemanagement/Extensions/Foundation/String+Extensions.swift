@@ -14,6 +14,11 @@ extension String {
     var localized:LocalizedStringKey {
         return LocalizedStringKey(self)
     }
+    
+    /** 다국어 번역 지원 */
+    var localizedText:Text {
+        Text(localized)
+    }
 }
 
 

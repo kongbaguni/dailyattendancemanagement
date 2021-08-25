@@ -19,6 +19,7 @@ struct ProfileView: View {
     @State private var showingImagePicker = false
     @State private var inputImageURL: URL? = nil
     
+    @State private var showingImageActonSheet = false
     @State var textName = "홍길동"
     @State var textNickName = "고길동"
     @State var textEmail = "hong@gil.dong"
@@ -28,6 +29,7 @@ struct ProfileView: View {
     @State var nameBgColor:Color = .clear
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
 
+    @State var isDeletePhoto = false
     
     let disposeBag = DisposeBag()
     func loadImage() {
@@ -46,7 +48,7 @@ struct ProfileView: View {
                             .frame(width: 150, height: 150, alignment: .center)
                             .border(nameColor, width: 2)
                             .onTapGesture {
-                                showingImagePicker = true
+                                showingImageActonSheet = true
                             }
                         Spacer()
                     }
@@ -80,6 +82,20 @@ struct ProfileView: View {
                 Map(coordinateRegion: $region, showsUserLocation: true)
                     .frame(width: geometry.size.width-15, height: 100, alignment: .center)
             }
+            .actionSheet(isPresented: $showingImageActonSheet, content: {
+                ActionSheet(title: "profilePhoto-title".localizedText, message: nil, buttons: [
+                    .default("selectPhoto-title".localizedText, action: {
+                        showingImagePicker = true
+                    }),
+                    .default("deletePhoto-title".localizedText, action: {
+                        inputImageURL = nil
+                        profileUrl = ProfileModel.current!.googleProfileImageUrl
+                        isDeletePhoto = true
+                    }),
+                    .cancel()
+                ]
+                )
+            })
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage, content: {
                 ImagePicker(imageURL: $inputImageURL)
             })
@@ -90,11 +106,16 @@ struct ProfileView: View {
                             return
                         }
                         func updateProfile() {
+                            var uploadProfileUrl = inputImageURL != nil ? profileUrl : nil
+                            if isDeletePhoto {
+                                uploadProfileUrl = ""
+                            }
                             ProfileModel.update(uid: uid,
                                                 email: textEmail,
                                                 name: textName,
                                                 nickname: textNickName,
-                                                profileImageURL: profileUrl,
+                                                profileImageURL: nil,
+                                                uploadedProfileImageURL: uploadProfileUrl,
                                                 nameColor: nameColor,
                                                 nameBgColor: nameBgColor) { error in
                                 if error == nil {
@@ -105,7 +126,7 @@ struct ProfileView: View {
                         
                         if let url = URL(string: profileUrl) {
                             if url.isFileURL {
-                                FirebaseStorageManager.shared.uploadImage(fileUrl: url, uploadSize: CGSize(width: 100, height: 100), uploadPath: "profile/\(ProfileModel.current!.uid).jpg") { url in
+                                FirebaseStorageManager.shared.uploadImage(fileUrl: url, uploadSize: CGSize(width: 300, height: 300), uploadPath: "profile/\(ProfileModel.current!.uid).jpg") { url in
                                     if let url = url?.absoluteString {
                                         self.profileUrl = url
                                         updateProfile()
@@ -133,7 +154,7 @@ struct ProfileView: View {
                     textName = profile.name
                     textNickName = profile.nickname
                     textEmail = profile.email
-                    profileUrl = profile.googleProfileImageUrl
+                    profileUrl = profile.profileURL?.absoluteString ?? ""
                     textLastSigninDate = profile.lastSigninDate.formatedString(format: "yyyy년 M월 d일 H시 m분 s초")!
                     nameColor = profile.nameColor
                     nameBgColor = profile.nameBgColor
