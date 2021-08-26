@@ -23,8 +23,8 @@ extension Color {
         Color("strongTextColor")
     }
     
+    /** RGBA 값을 얻어옵니다.*/
     var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
-
          #if canImport(UIKit)
          typealias NativeColor = UIColor
          #elseif canImport(AppKit)
