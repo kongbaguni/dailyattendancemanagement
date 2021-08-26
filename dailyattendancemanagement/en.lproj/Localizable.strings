@@ -19,3 +19,12 @@
 "profilePhoto-title" = "profile photo";
 "selectPhoto-title" = "select photo";
 "deletePhoto-title" = "delete photo";
+
+"errorAlertNameColor-title" = "wrong color choice";
+"errorAlertNameColor-message1" = "Name color and name background color cannot be the same.";
+"errorAlertNameColor-message2" = "Name color and name background color cannot be the same.";
+
+"confirm-title" = "confirm";
+
+"photoUploadError_title" = "photo upload error";
+"photoUploadError_message" = "Unable to upload photo data.";

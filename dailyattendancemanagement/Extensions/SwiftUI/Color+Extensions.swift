@@ -43,4 +43,18 @@ extension Color {
 
          return (r, g, b, o)
      }
+    
+    func compare(color:Color)->CGFloat {    
+        let a = components
+        let b = color.components
+        
+        let red = abs(a.red - b.red)
+        let green = abs(a.green - b.green)
+        let blue = abs(a.blue - b.blue)
+        let opacity = abs(a.opacity - b.opacity)
+        
+        let arr = [red,green,blue,opacity]
+        let new = arr.sorted()
+        return new.last!
+    }
 }

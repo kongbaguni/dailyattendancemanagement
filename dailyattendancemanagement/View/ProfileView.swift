@@ -18,8 +18,13 @@ struct ProfileView: View {
     @Environment(\.presentationMode) var presentation
     @State private var showingImagePicker = false
     @State private var inputImageURL: URL? = nil
-    
+    @State private var isLoading:Bool = false
     @State private var showingImageActonSheet = false
+    
+    @State private var errorAlert = false
+    @State private var errorTitle:Text = Text("")
+    @State private var errorMessage:Text = Text("")
+    
     @State var textName = "홍길동"
     @State var textNickName = "고길동"
     @State var textEmail = "hong@gil.dong"
@@ -82,6 +87,12 @@ struct ProfileView: View {
                 Map(coordinateRegion: $region, showsUserLocation: true)
                     .frame(width: geometry.size.width-15, height: 100, alignment: .center)
             }
+            .progressViewStyle(CircularProgressViewStyle())
+            .alert(isPresented: $errorAlert, content: {
+                Alert(title: errorTitle,
+                      message: errorMessage,
+                      dismissButton: .cancel("confirm-title".localizedText))
+            })
             .actionSheet(isPresented: $showingImageActonSheet, content: {
                 ActionSheet(title: "profilePhoto-title".localizedText, message: nil, buttons: [
                     .default("selectPhoto-title".localizedText, action: {
@@ -105,6 +116,23 @@ struct ProfileView: View {
                         guard let uid = ProfileModel.currentUid else {
                             return
                         }
+                        
+                        if nameColor == nameBgColor {
+                            errorTitle = "errorAlertNameColor-title".localizedText
+                            errorMessage = "errorAlertNameColor-message1".localizedText
+                            errorAlert = true
+                            return
+                        }
+                        
+                        if nameColor.compare(color: nameBgColor) < 0.2 {
+                            errorTitle = "errorAlertNameColor-title".localizedText
+                            errorMessage = "errorAlertNameColor-message2".localizedText
+                            errorAlert = true
+                            return
+                        }
+                        
+                        
+                        isLoading = true
                         func updateProfile() {
                             var uploadProfileUrl = inputImageURL != nil ? profileUrl : nil
                             if isDeletePhoto {
@@ -121,6 +149,7 @@ struct ProfileView: View {
                                 if error == nil {
                                     presentation.wrappedValue.dismiss()
                                 }
+                                isLoading = false
                             }
                         }
                         
@@ -131,17 +160,21 @@ struct ProfileView: View {
                                         self.profileUrl = url
                                         updateProfile()
                                     }
+                                    else {
+                                        errorTitle = "photoUploadError_title".localizedText
+                                        errorMessage = "photoUploadError_message".localizedText
+                                        errorAlert = true
+                                        isLoading = false
+                                    }
                                 }
                                 return
                             }
                         }
                         updateProfile()
-                        
                     }, label: {
                         Text("save".localized)
                     })
             )
-            .navigationBarTitle("profile-title".localized)
             .onAppear(perform: {
                 
                 LocationManager.shared.start()
@@ -192,9 +225,11 @@ struct ProfileView: View {
                 }
                 print(ProfileModel.current?.name ?? "이름없음")
                 print(ProfileModel.current?.email ?? "프로필 이미지 없음")
-            })
+            })            
+            ActivityIndicator($isLoading).frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
         }
-        
+        .navigationBarTitle("profile-title".localized, displayMode: .large)
+
     }
 }
 

@@ -19,3 +19,13 @@
 "profilePhoto-title" = "프로필 사진";
 "selectPhoto-title" = "사진 선택";
 "deletePhoto-title" = "사진 삭재";
+
+
+"errorAlertNameColor-title" = "잘못된 색상 선택";
+"errorAlertNameColor-message1" = "이름 색과 이름 배경색은 같을 수 없습니다.";
+"errorAlertNameColor-message2" = "이름 색과 이름 배경색은 비슷할 수 없습니다.";
+"confirm-title" = "확인";
+
+
+"photoUploadError_title" = "사진 업로드 에러";
+"photoUploadError_message" = "사진 데이터를 업로드 할 수 없습니다.";

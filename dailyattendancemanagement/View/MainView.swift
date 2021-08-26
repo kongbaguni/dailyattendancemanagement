@@ -23,10 +23,12 @@ struct MainView: View {
                 Button("signOut-title".localized) {
                     AuthManager.shared.signOut()
                     viewRouter.currentView = .login
-                }
+                }                
             }
-            .navigationTitle("home-title".localized)
+            .navigationBarTitle("home-title".localized,displayMode: .large)
         }
+        .navigationViewStyle(StackNavigationViewStyle())        
+
     }
 }
 
