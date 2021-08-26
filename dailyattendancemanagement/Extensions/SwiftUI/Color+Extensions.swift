@@ -44,6 +44,7 @@ extension Color {
          return (r, g, b, o)
      }
     
+    /** rgba 값을 비교하여 차이가 가장 큰 값을 리턴합니다. 두가지 색이 비슷한 색인지 알기 위함.*/
     func compare(color:Color)->CGFloat {    
         let a = components
         let b = color.components
