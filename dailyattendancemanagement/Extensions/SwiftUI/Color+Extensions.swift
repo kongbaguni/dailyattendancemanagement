@@ -58,4 +58,12 @@ extension Color {
         let new = arr.sorted()
         return new.last!
     }
+    
+    var complementaryColor : Color {
+        let red = Double(1.0 - components.red)
+        let green = Double(1.0 - components.green)
+        let blue = Double(1.0 - components.blue)
+        
+        return .init(.sRGB, red: red, green: green, blue: blue, opacity: Double(components.opacity))
+    }
 }

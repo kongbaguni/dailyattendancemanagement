@@ -33,6 +33,7 @@ class ProfileModel : Object {
     @objc dynamic var nameBgColor_blue:Double = 1
     @objc dynamic var nameBgColor_opacity:Double = 1
 
+    @objc dynamic var introduce:String = ""
     
     var lastSigninDate:Date {
         return Date(timeIntervalSince1970: lastSignInTimeIntervalSince1970)
@@ -85,12 +86,26 @@ extension ProfileModel {
         }        
     }
 
-    static func update(uid:String, email:String, name:String?, nickname:String? = nil, profileImageURL:String? = nil, uploadedProfileImageURL:String? = nil,  nameColor:Color? = nil, nameBgColor:Color? = nil, complete:@escaping(_ error:Error?)->Void) {
+    static func update(uid:String,
+                       email:String,
+                       name:String?,
+                       nickname:String? = nil,
+                       profileImageURL:String? = nil,
+                       uploadedProfileImageURL:String? = nil,
+                       nameColor:Color? = nil,
+                       nameBgColor:Color? = nil,
+                       introduce:String? = nil,
+                       complete:@escaping(_ error:Error?)->Void) {
         var data:[String:AnyHashable] = [
             "uid":uid,
             "email":email,
             "lastSignInTimeIntervalSince1970":Date().timeIntervalSince1970
         ]
+        
+        if let intro = introduce {
+            data["introduce"] = intro
+        }
+        
         if let name = name {
             data["name"] = name
         }
@@ -121,25 +136,34 @@ extension ProfileModel {
             data["nameBgColor_opacity"] = color.components.opacity
         }
         
-        let realm = try! Realm()
-        try! realm.write {
-            realm.create(ProfileModel.self, value: data, update: .modified)
-        }
+        update(data: data, complete: complete)
+    }
+    
+    
+    static func update(data:[String:AnyHashable], complete:@escaping(_ error:Error?)->Void) {
+        let uid = data["uid"] as! String
+        let profile = Firestore.firestore().collection("profile")
         
-        
-        let profile = Firestore.firestore().collection("profile")        
         profile.document(uid).updateData(data) { error in
-            if let _ = error {
-                profile.document(uid).setData(data) { error2 in
-                    complete(error2)
+            if error == nil {
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.create(ProfileModel.self, value: data, update: .modified)
+                    complete(nil)
                 }
                 return
-            }
-            ProfileModel.current?.getDataFromFireStore() {
-                complete(nil)
+            } else {
+                profile.document(uid).setData(data) { error in
+                    if error == nil {
+                        let realm = try! Realm()
+                        try! realm.write {
+                            realm.create(ProfileModel.self, value: data, update: .all)
+                        }
+                    }
+                    complete(error)
+                }
             }
         }
     }
-    
 
 }

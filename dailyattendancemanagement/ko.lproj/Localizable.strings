@@ -24,8 +24,14 @@
 "errorAlertNameColor-title" = "잘못된 색상 선택";
 "errorAlertNameColor-message1" = "이름 색과 이름 배경색은 같을 수 없습니다.";
 "errorAlertNameColor-message2" = "이름 색과 이름 배경색은 비슷할 수 없습니다.";
+"errorAlertNameColor-message3" = "이름 색의 투명도가 너무 낮습니다.";
+"errorAlertNameColor-message4" = "이름 배경색의 투명도가 너무 낮습니다.";
+"nameColorSetComplementaryColor" = "이름배경 보색으로 설정";
 "confirm-title" = "확인";
 
 
+"introduce-title" = "자기소개";
 "photoUploadError_title" = "사진 업로드 에러";
 "photoUploadError_message" = "사진 데이터를 업로드 할 수 없습니다.";
+
+"save" = "저장";

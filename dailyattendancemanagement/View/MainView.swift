@@ -19,15 +19,20 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("profile-title".localized, destination: ProfileView())
+                NavigationLink("profile-title".localized, destination: ProfileEditView())
                 Button("signOut-title".localized) {
                     AuthManager.shared.signOut()
                     viewRouter.currentView = .login
-                }                
+                }
             }
+            .listStyle(PlainListStyle())
             .navigationBarTitle("home-title".localized,displayMode: .large)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())        
+        }.listRowBackground(
+            Image("naviBg").resizable().centerCropped().opacity(0.5).colorMultiply(.init(.sRGB, red: 0.5, green: 0.5, blue: 0.0, opacity: 0.5))
+           )
+        
+        .navigationViewStyle(StackNavigationViewStyle())
+        
 
     }
 }

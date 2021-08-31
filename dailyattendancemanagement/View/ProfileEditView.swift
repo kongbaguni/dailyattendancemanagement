@@ -1,5 +1,5 @@
 //
-//  ProfileView.swift
+//  ProfileEditView.swift
 //  dailyattendancemanagement
 //
 //  Created by Changyeol Seo on 2021/08/06.
@@ -13,7 +13,7 @@ import RealmSwift
 import SDWebImageSwiftUI
 import MapKit
 
-struct ProfileView: View {
+struct ProfileEditView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
     @Environment(\.presentationMode) var presentation
     @State private var showingImagePicker = false
@@ -25,13 +25,15 @@ struct ProfileView: View {
     @State private var errorTitle:Text = Text("")
     @State private var errorMessage:Text = Text("")
     
+    @State var displayName = "고길동"
     @State var textName = "홍길동"
     @State var textNickName = "고길동"
     @State var textEmail = "hong@gil.dong"
-    @State var profileUrl = "https://pbs.twimg.com/media/DxHLQMjU0AISfx0?format=jpg&name=900x900"
+    @State var profileUrl = ""
     @State var textLastSigninDate = "2021년 3월 6일"
+    @State var textIntroduce = ""
     @State var nameColor:Color = .white
-    @State var nameBgColor:Color = .clear
+    @State var nameBgColor:Color = .orange
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
 
     @State var isDeletePhoto = false
@@ -47,19 +49,29 @@ struct ProfileView: View {
         GeometryReader { geometry in
             List{
                 HStack {
-                    VStack {
+                    GeometryReader { geometry2 in
                         WebImage(url: URL(string: profileUrl))
-                            .resizable(capInsets: .init(top: 0, leading: 0, bottom: 0, trailing: 0), resizingMode: .stretch)
-                            .frame(width: 150, height: 150, alignment: .center)
+                            .centerCropped()
                             .border(nameColor, width: 2)
                             .onTapGesture {
                                 showingImageActonSheet = true
                             }
-                        Spacer()
+                        
+                        
+                        Text(displayName)
+                            .padding(10)
+                            .foregroundColor(nameColor)
+                            .background(nameBgColor)
+                            .cornerRadius(20)
+                            .overlay(
+                                Capsule(style: .continuous)
+                                    .stroke(nameColor, lineWidth: 2.5)
+                            )
+                            .padding(10)
                     }
                     VStack {
                         HStack {
-                            Text("name-title".localized).fontWeight(.bold).foregroundColor(.yellow)
+                            "name-title".localizedText.fontWeight(.bold).foregroundColor(.yellow)
                             Text(textName)
                             Spacer()
                         }
@@ -67,25 +79,39 @@ struct ProfileView: View {
                             Text("nickname-title".localized).fontWeight(.bold).foregroundColor(.yellow)
                             TextField("inputNickName-title", text: $textNickName)
                                 .padding(5)
-                                .border(nameColor, width: 1)
-                                .foregroundColor(nameColor)
-                                .background(nameBgColor)
+                                .border(Color.strongTextColor, width: 1)
                                 .padding(EdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0))
+                                .onChange(of: textNickName, perform: { value in
+                                    print(value)
+                                    displayName = textNickName.isEmpty ? textName : textNickName
+                                })
                             Spacer()
                         }
                         ColorPicker("nameColor-title".localized, selection: $nameColor)
                         ColorPicker("nameBgColor-title".localized, selection: $nameBgColor)
-                        HStack {
-                            Text("email-title".localized).fontWeight(.bold).foregroundColor(.yellow)
-                            Text(textEmail)
-                            Spacer()
+                        Button("nameColorSetComplementaryColor".localized) {
+                            nameBgColor = nameColor.complementaryColor
                         }
                         Spacer()
                     }
                 }
-                Text(textLastSigninDate)
-                Map(coordinateRegion: $region, showsUserLocation: true)
-                    .frame(width: geometry.size.width-15, height: 100, alignment: .center)
+                HStack {
+                    "email-title".localizedText.fontWeight(.bold).foregroundColor(.yellow)
+                    Text(textEmail)
+                    Spacer()
+                }
+                HStack {
+                    VStack {
+                        "introduce-title".localizedText.fontWeight(.bold).foregroundColor(.yellow)
+                        Spacer()
+                    }
+                    TextEditor(text:$textIntroduce)
+                        .frame(minWidth: 100, idealWidth: 100, maxWidth: 500, minHeight: 100, idealHeight: 100, maxHeight: .infinity, alignment: .center)
+                    
+                }
+//                Text(textLastSigninDate)
+//                Map(coordinateRegion: $region, showsUserLocation: true)
+//                    .frame(width: geometry.size.width-15, height: 100, alignment: .center)
             }
             .progressViewStyle(CircularProgressViewStyle())
             .alert(isPresented: $errorAlert, content: {
@@ -131,6 +157,19 @@ struct ProfileView: View {
                             return
                         }
                         
+                        if nameColor.components.opacity < 0.5 {
+                            errorTitle = "errorAlertNameColor-title".localizedText
+                            errorMessage = "errorAlertNameColor-message3".localizedText
+                            errorAlert = true
+                            return
+                        }
+                        if nameBgColor.components.opacity < 0.2 {
+                            errorTitle = "errorAlertNameColor-title".localizedText
+                            errorMessage = "errorAlertNameColor-message4".localizedText
+                            errorAlert = true
+                            return
+                        }
+                        
                         
                         isLoading = true
                         func updateProfile() {
@@ -145,7 +184,9 @@ struct ProfileView: View {
                                                 profileImageURL: nil,
                                                 uploadedProfileImageURL: uploadProfileUrl,
                                                 nameColor: nameColor,
-                                                nameBgColor: nameBgColor) { error in
+                                                nameBgColor: nameBgColor,
+                                                introduce: textIntroduce
+                                                ) { error in
                                 if error == nil {
                                     presentation.wrappedValue.dismiss()
                                 }
@@ -172,7 +213,7 @@ struct ProfileView: View {
                         }
                         updateProfile()
                     }, label: {
-                        Text("save".localized)
+                        "save".localizedText
                     })
             )
             .onAppear(perform: {
@@ -184,6 +225,7 @@ struct ProfileView: View {
                     return
                 }
                 func loadData() {
+                    displayName = profile.nameValue
                     textName = profile.name
                     textNickName = profile.nickname
                     textEmail = profile.email
@@ -191,6 +233,7 @@ struct ProfileView: View {
                     textLastSigninDate = profile.lastSigninDate.formatedString(format: "yyyy년 M월 d일 H시 m분 s초")!
                     nameColor = profile.nameColor
                     nameBgColor = profile.nameBgColor
+                    textIntroduce = profile.introduce
                 }
                 profile.getDataFromFireStore {
                     loadData()
@@ -233,11 +276,11 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
+struct ProfileEditView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ProfileView()
-            ProfileView()
+            ProfileEditView()
+            ProfileEditView()
                 .previewDevice("iPad Air (4th generation)")
         }
         .preferredColorScheme(.dark)

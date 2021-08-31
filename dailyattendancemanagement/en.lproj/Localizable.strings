@@ -23,8 +23,13 @@
 "errorAlertNameColor-title" = "wrong color choice";
 "errorAlertNameColor-message1" = "Name color and name background color cannot be the same.";
 "errorAlertNameColor-message2" = "Name color and name background color cannot be the same.";
-
+"errorAlertNameColor-message3" = "The Opacity of the name color is too low.";
+"errorAlertNameColor-message4" = "The Opacity of the name background color is too low.";
+"nameColorSetComplementaryColor" = "name BGColor set Complementary Color";
 "confirm-title" = "confirm";
 
+"introduce-title" = "introduce";
 "photoUploadError_title" = "photo upload error";
 "photoUploadError_message" = "Unable to upload photo data.";
+
+"save" = "save";
